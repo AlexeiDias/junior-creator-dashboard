@@ -1,8 +1,9 @@
 import { connectMongo } from '@/lib/mongodb';
 import Course from '@/models/Course';
 import Link from 'next/link';
+import PublishToggle from '@/components/PublishToggle';
+import XPTracker from '@/components/XPTracker';
 
-// Define CourseType
 interface CourseType {
   _id: string;
   title: string;
@@ -39,30 +40,33 @@ export default async function DashboardPage() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {courses.map((course) => (
-          <Link
+          <div
             key={course._id}
-            href={`/courses/${course.slug}`}
-            className="border rounded-lg p-6 shadow hover:shadow-lg transition-all block relative"
+            className="border rounded-lg p-6 shadow hover:shadow-lg transition-all relative"
           >
-            {/* ✨ Status Badge */}
+            {/* ✨ Publish/Unpublish Toggle */}
             <div className="absolute top-4 right-4">
-              {course.isPublished ? (
-                <span className="bg-green-100 text-green-800 text-xs font-bold px-2 py-1 rounded">
-                  Published
-                </span>
-              ) : (
-                <span className="bg-yellow-100 text-yellow-800 text-xs font-bold px-2 py-1 rounded">
-                  Draft
-                </span>
-              )}
+              <PublishToggle
+                slug={course.slug}
+                initialStatus={course.isPublished}
+              />
             </div>
 
-            <h2 className="text-2xl font-semibold mb-2">{course.title}</h2>
+            {/* ✅ Title is now the only clickable Link */}
+            <h2 className="text-2xl font-semibold mb-2">
+              <Link href={`/courses/${course.slug}`} className="hover:underline">
+                {course.title}
+              </Link>
+            </h2>
+
             <p className="text-gray-600 mb-4">{course.description}</p>
+
             <p className="text-sm text-gray-400">
               Unlocks: {new Date(course.unlockDate).toLocaleDateString()}
             </p>
-          </Link>
+            <XPTracker />
+
+          </div>
         ))}
       </div>
     </div>
