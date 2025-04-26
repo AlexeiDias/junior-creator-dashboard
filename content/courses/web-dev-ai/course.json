@@ -1,10 +1,154 @@
 {
-    "title": "Web Development & AI Creator Track",
-    "slug": "web-dev-ai",
-    "description": "Learn full-stack web dev and AI app creation for ages 9–12.",
-    "level": "Junior",
-    "startDate": "2025-06-01",
-    "published": true,
-    "weeks": 12
-  }
-  
+  "title": "Web Development & AI Creator Track",
+  "slug": "web-dev-ai",
+  "description": "Learn full-stack web development and AI app creation for kids ages 9–12 with a fun, project-based approach.",
+  "level": "Junior",
+  "durationWeeks": 12,
+  "published": true,
+  "weeks": [
+    {
+      "weekNumber": 1,
+      "title": "Setup + HTML & CSS Basics",
+      "objective": "Learn to set up tools and build your first webpage with HTML and CSS.",
+      "days": [
+        { "dayNumber": 1, "topic": "Installing Tools + HTML Intro" },
+        { "dayNumber": 2, "topic": "Building Basic HTML Pages" },
+        { "dayNumber": 3, "topic": "Styling with CSS Basics" },
+        { "dayNumber": 4, "topic": "Structuring Layouts (divs, sections)" },
+        { "dayNumber": 5, "topic": "Mini-Project: My Personal Page" }
+      ]
+    },
+    {
+      "weekNumber": 2,
+      "title": "HTML & CSS Deeper Dive",
+      "objective": "Deepen HTML/CSS skills with forms, tables, responsive design, and Flexbox.",
+      "days": [
+        { "dayNumber": 1, "topic": "HTML Forms and Inputs" },
+        { "dayNumber": 2, "topic": "Lists, Tables & Semantic Elements" },
+        { "dayNumber": 3, "topic": "Responsive Design Principles" },
+        { "dayNumber": 4, "topic": "Flexbox for Layouts" },
+        { "dayNumber": 5, "topic": "Project: Responsive Landing Page" }
+      ]
+    },
+    {
+      "weekNumber": 3,
+      "title": "Intro to JavaScript",
+      "objective": "Get started with JavaScript basics to bring websites to life.",
+      "days": [
+        { "dayNumber": 1, "topic": "Intro to JavaScript: What & Why" },
+        { "dayNumber": 2, "topic": "Variables and Data Types" },
+        { "dayNumber": 3, "topic": "Basic Operators and Logic" },
+        { "dayNumber": 4, "topic": "Functions and Events" },
+        { "dayNumber": 5, "topic": "Mini-Project: Interactive Web Page" }
+      ]
+    },
+    {
+      "weekNumber": 4,
+      "title": "More JavaScript Fun",
+      "objective": "Strengthen JavaScript basics with loops, arrays, and DOM manipulation.",
+      "days": [
+        { "dayNumber": 1, "topic": "Loops and Conditionals" },
+        { "dayNumber": 2, "topic": "Arrays and Objects" },
+        { "dayNumber": 3, "topic": "The Document Object Model (DOM)" },
+        { "dayNumber": 4, "topic": "Manipulating the DOM with JS" },
+        { "dayNumber": 5, "topic": "Mini-Project: To-Do List App" }
+      ]
+    },
+    {
+      "weekNumber": 5,
+      "title": "Introduction to AI Tools",
+      "objective": "Learn about ChatGPT, image generators, and how AI supports web creators.",
+      "days": [
+        { "dayNumber": 1, "topic": "What is AI? Exploring Examples" },
+        { "dayNumber": 2, "topic": "Using ChatGPT for Brainstorming" },
+        { "dayNumber": 3, "topic": "Image Generators and Prompt Crafting" },
+        { "dayNumber": 4, "topic": "Ethics and Safe AI Usage" },
+        { "dayNumber": 5, "topic": "Mini-Project: Build a Story Generator" }
+      ]
+    },
+    {
+      "weekNumber": 6,
+      "title": "Your First Real Web App",
+      "objective": "Combine HTML, CSS, JS, and AI to make an interactive app.",
+      "days": [
+        { "dayNumber": 1, "topic": "Planning a Web App" },
+        { "dayNumber": 2, "topic": "Wireframes and Simple UI Design" },
+        { "dayNumber": 3, "topic": "Form Handling and API Basics" },
+        { "dayNumber": 4, "topic": "Connecting to an AI API (safe/simulated)" },
+        { "dayNumber": 5, "topic": "Demo: App with User Input + AI Output" }
+      ]
+    },
+    {
+      "weekNumber": 7,
+      "title": "JavaScript Deeper Dive",
+      "objective": "Master arrays, objects, and fetch requests.",
+      "days": [
+        { "dayNumber": 1, "topic": "Advanced Arrays (map, filter)" },
+        { "dayNumber": 2, "topic": "Object-Oriented Concepts (Simple)" },
+        { "dayNumber": 3, "topic": "Fetching Data with APIs" },
+        { "dayNumber": 4, "topic": "Error Handling" },
+        { "dayNumber": 5, "topic": "Mini-Project: Weather App" }
+      ]
+    },
+    {
+      "weekNumber": 8,
+      "title": "Professional Web Practices",
+      "objective": "Learn version control, deployment, and teamwork basics.",
+      "days": [
+        { "dayNumber": 1, "topic": "Intro to Git and GitHub" },
+        { "dayNumber": 2, "topic": "Branches and Pull Requests" },
+        { "dayNumber": 3, "topic": "Hosting on Netlify or Vercel" },
+        { "dayNumber": 4, "topic": "Team Project Planning" },
+        { "dayNumber": 5, "topic": "Mini Hackathon" }
+      ]
+    },
+    {
+      "weekNumber": 9,
+      "title": "Website Animation and UI Design",
+      "objective": "Enhance user experience with animations and better designs.",
+      "days": [
+        { "dayNumber": 1, "topic": "CSS Animations Basics" },
+        { "dayNumber": 2, "topic": "Transitions and Keyframes" },
+        { "dayNumber": 3, "topic": "Micro-Interactions in UI" },
+        { "dayNumber": 4, "topic": "Design Tools (Figma basics)" },
+        { "dayNumber": 5, "topic": "Mini-Project: Interactive Portfolio" }
+      ]
+    },
+    {
+      "weekNumber": 10,
+      "title": "Beginner's Fullstack",
+      "objective": "Learn the basics of servers, databases, and backend logic.",
+      "days": [
+        { "dayNumber": 1, "topic": "What is a Server?" },
+        { "dayNumber": 2, "topic": "Basic Node.js Concepts" },
+        { "dayNumber": 3, "topic": "Intro to Databases (MongoDB)" },
+        { "dayNumber": 4, "topic": "APIs and Authentication Basics" },
+        { "dayNumber": 5, "topic": "Mini-Project: Simple Message Board" }
+      ]
+    },
+    {
+      "weekNumber": 11,
+      "title": "Capstone Planning Week",
+      "objective": "Plan a capstone web + AI project from scratch.",
+      "days": [
+        { "dayNumber": 1, "topic": "Idea Generation & Brainstorm" },
+        { "dayNumber": 2, "topic": "Wireframing and Prototyping" },
+        { "dayNumber": 3, "topic": "Mock APIs / AI Features" },
+        { "dayNumber": 4, "topic": "Prepare MVP (Minimum Viable Product)" },
+        { "dayNumber": 5, "topic": "Project Reviews and Feedback" }
+      ]
+    },
+    {
+      "weekNumber": 12,
+      "title": "Capstone Project Sprint",
+      "objective": "Build and launch your first web+AI project!",
+      "days": [
+        { "dayNumber": 1, "topic": "Project Development Day 1" },
+        { "dayNumber": 2, "topic": "Project Development Day 2" },
+        { "dayNumber": 3, "topic": "Testing and Debugging" },
+        { "dayNumber": 4, "topic": "Final Touches and Polish" },
+        { "dayNumber": 5, "topic": "🎉 Project Presentations + Graduation!" }
+      ]
+    }
+  ]
+}

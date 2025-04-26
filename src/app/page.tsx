@@ -1,71 +1,63 @@
-import { connectMongo } from '@/lib/mongodb';
-import Course from '@/models/Course';
-import Link from 'next/link';
-import PublishToggle from '@/components/PublishToggle';
-import XPTracker from '@/components/XPTracker';
+'use client';
 
-interface CourseType {
+import { useState, useEffect } from 'react';
+import Link from 'next/link';
+import CreateLessonForm from '@/components/CreateLessonForm';
+import axios from 'axios'; // ✅ Needed to fetch lessons
+
+interface Lesson {
   _id: string;
   title: string;
-  slug: string;
   description: string;
-  isPublished: boolean;
-  unlockDate: Date;
+  week: number;
+  day: number;
 }
 
-export default async function DashboardPage() {
-  await connectMongo();
-  const dbCourses = await Course.find().lean();
+export default function AdminDashboard() {
+  const [showForm, setShowForm] = useState(false);
+  const [lessons, setLessons] = useState<Lesson[]>([]);
 
-  const courses: CourseType[] = dbCourses.map((doc: any) => ({
-    _id: doc._id.toString(),
-    title: doc.title,
-    slug: doc.slug,
-    description: doc.description,
-    isPublished: doc.isPublished,
-    unlockDate: doc.unlockDate,
-  }));
+  useEffect(() => {
+    const fetchLessons = async () => {
+      try {
+        const res = await axios.get('/api/lessons'); // ✅ You must have a /api/lessons endpoint
+        setLessons(res.data);
+      } catch (error) {
+        console.error('Error fetching lessons', error);
+      }
+    };
+
+    fetchLessons();
+  }, []);
 
   return (
-    <div className="min-h-screen p-10">
-      <div className="flex justify-between items-center mb-8">
-        <h1 className="text-4xl font-bold">Admin Dashboard 📚</h1>
-        <Link
-          href="/create"
-          className="bg-green-600 text-white px-5 py-2 rounded hover:bg-green-700"
-        >
-          ➕ Create New Course
-        </Link>
-      </div>
+    <div className="p-8">
+      <h1 className="text-3xl font-bold mb-6">🛠 Admin Dashboard</h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {courses.map((course) => (
-          <div
-            key={course._id}
-            className="border rounded-lg p-6 shadow hover:shadow-lg transition-all relative"
-          >
-            {/* ✨ Publish/Unpublish Toggle */}
-            <div className="absolute top-4 right-4">
-              <PublishToggle
-                slug={course.slug}
-                initialStatus={course.isPublished}
-              />
-            </div>
+      <button
+        onClick={() => setShowForm(true)}
+        className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mb-6"
+      >
+        ➕ Create New Lesson
+      </button>
 
-            {/* ✅ Title is now the only clickable Link */}
-            <h2 className="text-2xl font-semibold mb-2">
-              <Link href={`/courses/${course.slug}`} className="hover:underline">
-                {course.title}
-              </Link>
-            </h2>
+      {showForm && (
+        <CreateLessonForm onClose={() => setShowForm(false)} />
+      )}
 
-            <p className="text-gray-600 mb-4">{course.description}</p>
+      {/* ✅ List of Lessons */}
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+        {lessons.map((lesson) => (
+          <div key={lesson._id} className="border rounded-lg p-6 shadow hover:shadow-lg transition-all">
+            <h2 className="text-2xl font-semibold mb-2">{lesson.title}</h2>
+            <p className="text-gray-600 mb-4">{lesson.description}</p>
 
-            <p className="text-sm text-gray-400">
-              Unlocks: {new Date(course.unlockDate).toLocaleDateString()}
-            </p>
-            <XPTracker />
-
+            <Link
+              href={`/admin/lessons/${lesson._id}/edit`}
+              className="inline-block mt-2 text-blue-600 hover:underline"
+            >
+              ✏️ Edit Lesson
+            </Link>
           </div>
         ))}
       </div>

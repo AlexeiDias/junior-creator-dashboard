@@ -1,0 +1,59 @@
+{
+    "title": "Media Arts Summer Camp",
+    "slug": "media-arts-summer",
+    "description": "Learn video recording, editing, lighting, and thumbnail design. Become a young creator ready for YouTube Kids!",
+    "level": "Junior Creators",
+    "durationWeeks": 4,
+    "published": true,
+    "weeks": [
+      {
+        "weekNumber": 1,
+        "title": "Lights, Camera, Action!",
+        "objective": "Learn the basics of video recording, framing, and lighting.",
+        "days": [
+          { "dayNumber": 1, "topic": "Intro to Filmmaking 🎥" },
+          { "dayNumber": 2, "topic": "Camera Basics (Phones & Tablets OK)" },
+          { "dayNumber": 3, "topic": "Good Lighting: Natural vs. Artificial" },
+          { "dayNumber": 4, "topic": "Audio Essentials: Clear Sound Matters" },
+          { "dayNumber": 5, "topic": "Mini-Project: Record a Short Scene" }
+        ]
+      },
+      {
+        "weekNumber": 2,
+        "title": "Editing Like a Pro",
+        "objective": "Learn how to cut, edit, and enhance videos using free tools.",
+        "days": [
+          { "dayNumber": 1, "topic": "What is Editing? The Art of Storytelling" },
+          { "dayNumber": 2, "topic": "Using Free Video Editors (CapCut, iMovie, etc.)" },
+          { "dayNumber": 3, "topic": "Cutting, Trimming, and Adding Music" },
+          { "dayNumber": 4, "topic": "Adding Titles and Subtitles" },
+          { "dayNumber": 5, "topic": "Mini-Project: Edit Your First Video" }
+        ]
+      },
+      {
+        "weekNumber": 3,
+        "title": "Thumbnails & Branding",
+        "objective": "Create exciting thumbnails and a personal brand for your videos.",
+        "days": [
+          { "dayNumber": 1, "topic": "What Makes a Great Thumbnail?" },
+          { "dayNumber": 2, "topic": "Using Canva or Free Apps for Graphics" },
+          { "dayNumber": 3, "topic": "Fonts, Colors, and Layouts" },
+          { "dayNumber": 4, "topic": "Building Your Channel Aesthetic" },
+          { "dayNumber": 5, "topic": "Mini-Project: Design 3 Thumbnails" }
+        ]
+      },
+      {
+        "weekNumber": 4,
+        "title": "Publishing & Presentation",
+        "objective": "Learn how to publish videos safely and present your work.",
+        "days": [
+          { "dayNumber": 1, "topic": "YouTube Kids Overview & Rules" },
+          { "dayNumber": 2, "topic": "Uploading Videos Safely (Private Mode)" },
+          { "dayNumber": 3, "topic": "Presenting Your Work with Confidence" },
+          { "dayNumber": 4, "topic": "Final Project Editing and Polish" },
+          { "dayNumber": 5, "topic": "🎉 Final Showcase: Your Creator Debut!" }
+        ]
+      }
+    ]
+  }
+  

@@ -1,0 +1,83 @@
+{
+    "title": "Cybersecurity + IT Essentials",
+    "slug": "cybersecurity-it-essentials",
+    "description": "Learn the basics of cybersecurity, networking, internet safety, and hardware fundamentals in a fun and hands-on way.",
+    "level": "Junior Tech Specialist",
+    "durationWeeks": 12,
+    "published": true,
+    "weeks": [
+      {
+        "weekNumber": 1,
+        "title": "The Digital World 🌎",
+        "objective": "Understand what computers, networks, and the internet are.",
+        "days": [
+          { "dayNumber": 1, "topic": "What is a Computer?" },
+          { "dayNumber": 2, "topic": "What is a Network?" },
+          { "dayNumber": 3, "topic": "How the Internet Works" },
+          { "dayNumber": 4, "topic": "Intro to Cybersecurity" },
+          { "dayNumber": 5, "topic": "Mini-Project: Draw Your Home Network" }
+        ]
+      },
+      {
+        "weekNumber": 2,
+        "title": "Online Safety Basics 🛡️",
+        "objective": "Learn simple habits for staying safe online.",
+        "days": [
+          { "dayNumber": 1, "topic": "Strong Passwords & Password Managers" },
+          { "dayNumber": 2, "topic": "Recognizing Scams and Phishing" },
+          { "dayNumber": 3, "topic": "Safe Searching & Browsing" },
+          { "dayNumber": 4, "topic": "Keeping Personal Info Private" },
+          { "dayNumber": 5, "topic": "Mini-Project: Create a Safety Poster" }
+        ]
+      },
+      {
+        "weekNumber": 3,
+        "title": "Hardware Explorers 🖥️",
+        "objective": "Get to know the inside of a computer and devices.",
+        "days": [
+          { "dayNumber": 1, "topic": "Parts of a Computer (CPU, RAM, etc.)" },
+          { "dayNumber": 2, "topic": "How Wi-Fi and Routers Work" },
+          { "dayNumber": 3, "topic": "Storage Devices: HDD vs SSD" },
+          { "dayNumber": 4, "topic": "Hands-On: Building a Computer" },
+          { "dayNumber": 5, "topic": "Mini-Project: Hardware Scavenger Hunt" }
+        ]
+      },
+      {
+        "weekNumber": 4,
+        "title": "Protecting Your Data 🔐",
+        "objective": "Learn about encryption, backups, and data safety.",
+        "days": [
+          { "dayNumber": 1, "topic": "What is Encryption?" },
+          { "dayNumber": 2, "topic": "How to Backup Data" },
+          { "dayNumber": 3, "topic": "Secure Wi-Fi Settings" },
+          { "dayNumber": 4, "topic": "Two-Factor Authentication" },
+          { "dayNumber": 5, "topic": "Mini-Project: Create a Data Backup Plan" }
+        ]
+      },
+      {
+        "weekNumber": 5,
+        "title": "Cyber Ethics 🌐",
+        "objective": "Discuss the right way to behave online.",
+        "days": [
+          { "dayNumber": 1, "topic": "What is Cyberbullying?" },
+          { "dayNumber": 2, "topic": "Respect and Privacy Online" },
+          { "dayNumber": 3, "topic": "Copyrights and Fair Use" },
+          { "dayNumber": 4, "topic": "Good Digital Citizenship" },
+          { "dayNumber": 5, "topic": "Mini-Project: Online Code of Conduct" }
+        ]
+      },
+      {
+        "weekNumber": 6,
+        "title": "IT Troubleshooting 🛠️",
+        "objective": "Learn how to solve common computer problems.",
+        "days": [
+          { "dayNumber": 1, "topic": "What is Troubleshooting?" },
+          { "dayNumber": 2, "topic": "Internet Connection Problems" },
+          { "dayNumber": 3, "topic": "Computer Startup Issues" },
+          { "dayNumber": 4, "topic": "Safe Virus Removal Basics" },
+          { "dayNumber": 5, "topic": "Mini-Project: Create a Troubleshooting Guide" }
+        ]
+      }
+    ]
+  }
+  

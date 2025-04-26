@@ -1,84 +1,82 @@
-export const dynamic = 'force-dynamic';
-
 import fs from 'fs';
 import path from 'path';
-import matter from 'gray-matter';
-import ReactMarkdown from 'react-markdown';
-import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import LessonCompletionCheckbox from '@/components/LessonCompletionCheckbox'; // ✅ Import the checkbox
+import matter from 'gray-matter';
 
-interface LessonPageProps {
-  params: {
-    slug: string;
-    week: string;
-    day: string;
-  };
+const COURSE_SLUG = 'web-dev-ai'; // fixed for now
+
+interface LessonMeta {
+  title: string;
+  description: string;
+  week: number;
+  day: number;
 }
 
-export default async function LessonPage({ params }: LessonPageProps) {
-  const { slug, week, day } = params;
-
-  const lessonPath = path.join(
+export default async function StudentHome() {
+  const weekNumber = 1; // 🔥 Later we can make this dynamic (current week)
+  const lessonsDir = path.join(
     process.cwd(),
     'content',
     'courses',
-    slug,
+    COURSE_SLUG,
     'weeks',
-    `week-${week}`,
-    `day-${day}.md`
+    `week-${weekNumber}`
   );
 
-  try {
-    const fileContent = fs.readFileSync(lessonPath, 'utf-8');
-    const { data, content } = matter(fileContent);
+  const lessonFiles = fs.readdirSync(lessonsDir).filter((file) => file.endsWith('.md'));
 
-    return (
-      <div className="min-h-screen p-8">
+  const lessons: LessonMeta[] = lessonFiles.map((file) => {
+    const fullPath = path.join(lessonsDir, file);
+    const fileContent = fs.readFileSync(fullPath, 'utf8');
+    const { data } = matter(fileContent);
 
-        {/* Back Button */}
-        <Link href="/" className="text-blue-600 hover:underline mb-6 inline-block">
-          ⬅️ Back to Dashboard
-        </Link>
+    const dayNumber = parseInt(file.split('-')[1]);
 
-        {/* Lesson Title and Content */}
-        <h1 className="text-3xl font-bold mb-4">{data.title}</h1>
-        <p className="text-gray-600 mb-2">
-          <strong>Objective:</strong> {data.objective}
-        </p>
-        <p className="text-gray-500 mb-6">📅 {new Date(data.date).toLocaleDateString()}</p>
+    return {
+      title: data.title || `Day ${dayNumber}`,
+      description: data.description || '',
+      week: weekNumber,
+      day: dayNumber,
+    };
+  });
 
-        <div className="prose prose-lg max-w-none">
-          <ReactMarkdown>{content}</ReactMarkdown>
-        </div>
+  // 🔥 Get today's date
+  const today = new Date();
 
-        {/* Navigation Buttons */}
-        <div className="flex justify-between mt-10">
-          {parseInt(day) > 1 && (
-            <Link
-              href={`/courses/${slug}/week/${week}/day/${parseInt(day) - 1}`}
-              className="bg-gray-300 hover:bg-gray-400 text-black px-4 py-2 rounded"
+  return (
+    <div>
+      <h1 className="text-3xl font-bold mb-6">📅 This Week's Lessons</h1>
+      <div className="grid grid-cols-1 gap-4">
+        {lessons.map((lesson) => {
+          const lessonDate = new Date(today);
+          lessonDate.setDate(today.getDate() + (lesson.day - 1));
+
+          const isUnlocked = today >= lessonDate;
+
+          return (
+            <div
+              key={lesson.day}
+              className={`p-6 rounded-lg shadow border ${
+                isUnlocked ? 'bg-white' : 'bg-gray-200 opacity-50'
+              }`}
             >
-              ⬅️ Previous Lesson
-            </Link>
-          )}
-          {parseInt(day) < 5 && (
-            <Link
-              href={`/courses/${slug}/week/${week}/day/${parseInt(day) + 1}`}
-              className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded ml-auto"
-            >
-              Next Lesson ➡️
-            </Link>
-          )}
-        </div>
+              <h2 className="text-xl font-semibold">{lesson.title}</h2>
+              <p className="text-gray-700 mb-2">{lesson.description}</p>
 
-        {/* ✅ Add the Lesson Completion Checkbox */}
-        <LessonCompletionCheckbox slug={slug} week={week} day={day} />
-
+              {isUnlocked ? (
+                <Link
+                  href={`/student/courses/${COURSE_SLUG}/week/${lesson.week}/day/${lesson.day}`}
+                  className="text-green-600 underline"
+                >
+                  Start Lesson ➡️
+                </Link>
+              ) : (
+                <p className="text-red-500 font-semibold">🔒 Unlocks soon</p>
+              )}
+            </div>
+          );
+        })}
       </div>
-    );
-  } catch (error) {
-    console.error('Lesson not found:', error);
-    notFound();
-  }
+    </div>
+  );
 }
