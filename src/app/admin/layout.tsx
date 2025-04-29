@@ -6,7 +6,8 @@ import { ReactNode } from 'react';
 
 const menuItems = [
   { label: '🏠 Dashboard', href: '/admin/dashboard' },
-  { label: '📚 Courses', href: '/admin/courses' },
+  { label: '📚 Courses', href: '/admin/dashboard/courses' }, // 🔥 FIXED!
+
   { label: '👨‍🎓 Students', href: '/admin/students' },
   { label: '⚙️ Settings', href: '/admin/settings' },
 ];
